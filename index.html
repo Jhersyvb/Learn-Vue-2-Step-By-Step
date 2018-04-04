@@ -3,16 +3,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Episode 1. Basic Data Binding</title>
+    <title>Episode 5. Attribute and Class Binding</title>
+    <style>
+        .is-loading { background: red; }
+    </style>
 </head>
 <body>
     <div id="root">
-        <ul>
-            <li v-for="name in names" v-text="name"></li>
-        </ul>
-
-        <input id="input" type="text" v-model="newName">
-        <button v-on:click="addName">Add Name</button>
+        <button :class="{ 'is-loading': isLoading }" @click="toggleClass">Click Me</button>
     </div>
 
     <!-- development version, includes helpful console warnings -->
@@ -23,15 +21,12 @@
             el: '#root',
 
             data: {
-                newName: '',
-                names: ['Jhersy', 'Sara', 'Sareli', 'Luis']
+                isLoading: false
             },
 
             methods: {
-                addName() {
-                    this.names.push(this.newName);
-
-                    this.newName = '';
+                toggleClass() {
+                    this.isLoading = ! this.isLoading;
                 }
             }
         });
