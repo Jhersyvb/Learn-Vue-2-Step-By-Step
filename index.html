@@ -3,11 +3,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Episode 8. Components Within Components</title>
+    <title>Episode 9. Practical Component Exercise #1: Message</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css">
+    <style>
+        body { padding-top: 40px; }
+    </style>
 </head>
 <body>
-    <div id="root">
-        <task-list></task-list>
+    <div id="root" class="container">
+        <message title="Hello world" body="Lorem ipsum dolar sit amet."></message>
+        <message title="Hola mundo" body="Prueba de componentes"></message>
     </div>
 
     <!-- development version, includes helpful console warnings -->
