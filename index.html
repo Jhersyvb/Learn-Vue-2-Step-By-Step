@@ -3,14 +3,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Episode 5. Attribute and Class Binding</title>
-    <style>
-        .is-loading { background: red; }
-    </style>
+    <title>Episode 6. The Need for Computed Properties</title>
 </head>
 <body>
     <div id="root">
-        <button :class="{ 'is-loading': isLoading }" @click="toggleClass">Click Me</button>
+        <h2>All Tasks</h2>
+
+        <ul>
+            <li v-for="task in tasks" v-text="task.description"></li>
+        </ul>
+
+        <h2>Incomplete Tasks</h2>
+
+        <ul>
+            <li v-for="task in incompleteTasks" v-text="task.description"></li>
+        </ul>
     </div>
 
     <!-- development version, includes helpful console warnings -->
@@ -21,12 +28,19 @@
             el: '#root',
 
             data: {
-                isLoading: false
+                tasks: [
+                    { description: 'Go to the store', completed: true },
+                    { description: 'Finish screencast', completed: false },
+                    { description: 'Make donation', completed: false },
+                    { description: 'Clear inbox', completed: false },
+                    { description: 'Make dinner', completed: false },
+                    { description: 'Clean room', completed: true },
+                ]
             },
 
-            methods: {
-                toggleClass() {
-                    this.isLoading = ! this.isLoading;
+            computed: {
+                incompleteTasks() {
+                    return this.tasks.filter(task => ! task.completed);
                 }
             }
         });
