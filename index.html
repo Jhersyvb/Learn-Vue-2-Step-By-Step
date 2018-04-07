@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Episode 14. Named Slots in a Nutshell</title>
+    <title>Episode 15. Single-Use Components and Inline Templates</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css">
     <style>
         body { padding-top: 40px; }
@@ -11,16 +11,13 @@
 </head>
 <body>
     <div id="root" class="container">
-        <modal>
-            <template slot="header">My Title</template>
+        <progress-view inline-template>
+            <div>
+                <h1>Your Progress Through This Course Is {{ completionRate }}%</h1>
 
-             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan, lorem sodales facilisis maximus, magna purus dapibus lectus, a facilisis ligula risus ut velit.
-
-            <template slot="footer">
-                <button class="button is-success">Save changes</button>
-                <button class="button">Cancel</button>
-            </template>
-        </modal>
+                <p><button @click="completionRate += 10">Update Completion Rate</button></p>
+            </div>
+        </progress-view>
     </div>
 
     <!-- development version, includes helpful console warnings -->
