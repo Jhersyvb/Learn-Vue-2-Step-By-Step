@@ -1,4 +1,4 @@
-# my-app
+# lesson
 
 > A Vue.js project
 
