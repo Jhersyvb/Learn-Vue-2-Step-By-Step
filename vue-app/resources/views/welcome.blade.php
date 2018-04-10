@@ -11,16 +11,11 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <div id="one">
-            <h1>
-                @{{ shared.user.name }}
-            </h1>
-        </div>
+        <div id="app">
+            {{-- <input type="text" v-model="coupon"> --}}
+            {{-- <input type="text" :value="coupon" @input="coupon = $event.target.value"> --}}
 
-        <div id="two">
-            <h1>
-                @{{ shared.user.name }}
-            </h1>
+            <coupon v-model="coupon"></coupon>
         </div>
 
         <!-- development version, includes helpful console warnings -->
